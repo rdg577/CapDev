@@ -6,6 +6,29 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-card *ngIf="user">
+    <ion-card-header>
+      <img src="assets/img/profile.svg"/>
+    </ion-card-header>
 
+    <ion-card-content>
+      <ion-title>{{ user.Firstname }} {{ user.Lastname }}</ion-title>
+    </ion-card-content>
+
+    <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small (click)="update(user)">
+            <ion-icon name="create"></ion-icon>
+            <div>Edit</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small (click)="delete(user)">
+            <ion-icon name="trash"></ion-icon>
+            <div>Delete</div>
+          </button>
+        </ion-col>
+      </ion-row>
+  </ion-card>
 </ion-content>
