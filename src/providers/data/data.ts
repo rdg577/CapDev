@@ -13,25 +13,33 @@ export class DataProvider {
 
   selectAllStudents() {
     let fullUrl = this.url + 'API/SelectAllStudents';
-    return this.http.get(fullUrl).map(res => res.json());
+    let headers = new Headers({'Access-Control-Allow-Origin':'*'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.get(fullUrl, options).map(res => res.json());
   }
 
   insertStudent(Firstname, Lastname) {
     let params = { Firstname: Firstname, Lastname: Lastname };
     let fullUrl = this.url + 'API/InsertStudent';
-    return this.http.post(fullUrl,params).map(res => res.json());
+    let headers = new Headers({'Access-Control-Allow-Origin':'*'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(fullUrl,params,options).map(res => res.json());
   }
 
   updateStudent(Id, Firstname, Lastname) {
     let params = { Id: Id, Firstname: Firstname, Lastname: Lastname };
     let fullUrl = this.url + 'API/UpdateStudent';
-    return this.http.post(fullUrl,params).map(res => res.json());
+    let headers = new Headers({'Access-Control-Allow-Origin':'*'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(fullUrl,params,options).map(res => res.json());
   }
 
   deleteStudent(Id) {
     let params = { Id: Id };
     let fullUrl = this.url + 'API/DeleteStudent';
-    return this.http.post(fullUrl,params).map(res => res.json());
+    let headers = new Headers({'Access-Control-Allow-Origin':'*'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(fullUrl,params,options).map(res => res.json());
   }
 
 }
